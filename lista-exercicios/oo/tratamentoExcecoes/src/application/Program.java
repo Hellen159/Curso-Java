@@ -1,0 +1,38 @@
+package application;
+
+import java.util.Scanner;
+
+import model.entities.Account;
+import model.exceptions.DomainException;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		// TODO Auto-generated method stub
+		System.out.println("Enter accout data");
+		System.out.println("Number:");
+		int number = sc.nextInt();
+		System.out.println("Holder:");
+		sc.nextLine();
+		try {
+			String holder = sc.nextLine();
+			System.out.println("Initial balance:");
+			double balance = sc.nextDouble();
+			System.out.println("Withdrwa limit:");
+			double withdrawLimit = sc.nextDouble();
+			
+			Account acc = new Account(number, holder, balance, withdrawLimit);
+			
+			System.out.println("Enter amount for withdraw:");
+			double withdraw = sc.nextDouble();
+			acc.withdraw(withdraw);
+			System.out.println(acc);
+		}
+		catch (DomainException e) {
+			System.out.println("Error in reservation: " + e.getMessage());	
+		}
+		sc.close();
+	}
+
+}
