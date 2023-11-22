@@ -1,0 +1,35 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import entities.Employee;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter full file path:");
+        String caminhoDoArquivo = sc.next();
+
+        try (BufferedReader leitor = new BufferedReader(new FileReader(caminhoDoArquivo))) {
+            List <Employee> list = new ArrayList<>();
+            String line = leitor.readLine();
+            while (line != null) {
+                String[] fields = line.split(",");
+                list.add(new Employee(fields[0], fields[1], Double.parseDouble(fields[1]) ));
+                line = leitor.readLine();
+            }
+        } catch (IOException e) {
+            // Trate qualquer exceção de IO, como o arquivo não ser encontrado
+            e.printStackTrace();
+        }
+        sc.close();
+	}
+
+}

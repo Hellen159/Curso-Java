@@ -1,0 +1,80 @@
+package Main;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import Entities.Student;
+
+public class StudentManagentSystem {
+
+	private List<Student> students;
+	
+	public StudentManagentSystem() {
+		students = new ArrayList<Student>();
+	}
+	
+	
+	
+	public static void main2(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		Student [] listStudent = new Student [3];
+		Student s = new Student ();
+		for(int i=0; i<=2; i++) {
+			System.out.println("Digite o nome do estudante " + i );
+			String nome = sc.nextLine();
+			System.out.println("Digite a idade do estudante " + i );
+			int idade = sc.nextInt();
+			s.validarIdade(idade);
+			System.out.println("Digite o email do estudante " + i );
+			String email = sc.nextLine();
+			sc.next();
+			 s = new Student(nome, idade, i, email, 6666);
+			listStudent[i] = s;
+		}
+		
+		for (Student student : listStudent) {
+			System.out.println(student.toString());
+		}
+		
+		sc.close();
+	}
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static Integer lerInteiro() {
+		Scanner sc = new Scanner(System.in);
+		Integer valor = sc.nextInt();
+		System.out.println("lerInteiro: " + valor);
+		sc.close();
+		return valor;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static String lerString() {
+		Scanner sc = new Scanner(System.in);
+		String valor = sc.nextLine();
+		System.out.println("lerString: " + valor);
+		sc.close();
+		return valor;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static Float lerFloat() {
+		Scanner sc = new Scanner(System.in);
+		Float valor = sc.nextFloat();
+		System.out.println("lerFloat: " + valor);
+		sc.close();
+		return valor;
+	}
+
+}

@@ -1,0 +1,29 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter full file path:");
+        String caminhoDoArquivo = sc.next();
+
+        try (BufferedReader leitor = new BufferedReader(new FileReader(caminhoDoArquivo))) {
+            String linha;
+
+            // Lê cada linha do arquivo até atingir o final
+            while ((linha = leitor.readLine()) != null) {
+                System.out.println(linha);
+            }
+        } catch (IOException e) {
+            // Trate qualquer exceção de IO, como o arquivo não ser encontrado
+            e.printStackTrace();
+        }
+	}
+
+}
