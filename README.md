@@ -6,4 +6,6 @@ Repositorio destinado aos materias de apoio e projetos do curso Java da Udemy.
 <li>Estruturas Condicionais</li>
 <li>Estruturas de repetição</li>
 <li>Orientação a Objeto</li>
+<li>Conexão com  banco de dados</li>
+<li>JPA</li>
 </ul>
